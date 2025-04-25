@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Point and click</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <nav>
+      <a> &lt;&lt; </a>
+      <a href="../../">Home</a>
+      <a> &gt;&gt; </a>
+    </nav>
+
+    <div class="crt-screen action-log" id="log">
+      <p>Up here is your action log, click around!</p>
+    </div>
+
+    <main>
+      <div class="crt-screen" id="quests">
+        <hr>
+
+        <!-- Vibes -->
+        <p style="padding-left:4px;font-size: 0.6em;background-color: rgb(195, 0, 255)">Go OS 3, Copyright (c) Leonidas Inc.</p>
+        <br>
+        <p style="font-size: 0.6em;">Booting Quest shell...</p>
+        <p>===</p>
+
+        <h2>Quests</h2>
+
+          <!-- define the quests here -->
+        <div id="quest-list">
+          <h3 data-quest="throwAway" title="You know what">Throw it away</h3>
+          <h3 data-quest="pickup" data-on-complete="console.log('had all the stuff')" title="Gotta be prepared">Pick up everything</h3>
+        </div>
+
+        <hr>
+      </div>
+
+      <div id="playArea">
+        <div class="gimbalLook" id="scene-viewport">
+
+          <!-- define the crafting recipes here -->
+          <div id="crafting">
+            <img class="item" src="assets/key.png"
+              data-crafting-recipe="key" data-combines="lockbox, screwdriver" data-disallow-multiple="true"
+              data-use="Room.useItem(this, withObject)"
+              data-on-pickup="window.actionLog.push('ooh a key')">
+          </div>
+
+          <!-- build the whole map here -->
+          <div class="crt-screen" id="map">
+            <img class="item switch" src="assets/switch.png" style="top: 280px; left: 500px;"
+              data-game-item="switch"
+              data-use="Room.useItem(this, withObject)">
+
+            <img class="item" src="assets/screwdriver.png" style="top: 280px; left: 410px;"
+              data-game-item="screwdriver"
+              data-crafting-consumable="false"
+              data-use="Room.useItem(this, withObject)">
+
+            <img class="item" src="assets/box.png" style="top: 330px; left: 410px;"
+              data-game-item="lockbox"
+              data-use="Room.useItem(this, withObject)">
+
+            <img class="item switch" src="assets/switch.png" style="top: 260px; left: 695px;"
+              data-game-item="switch"
+              data-use="Room.useItem(this, withObject)">
+
+            <img class="item switch" src="assets/switch.png" style="top: 265px; left: 695px;"
+              data-game-item="switch"
+              data-use="Room.useItem(this, withObject)">
+
+            <img class="item switch" src="assets/switch.png" style="top: 260px; left: 690px;"
+              data-game-item="switch"
+              data-use="Room.useItem(this, withObject)">
+
+            <div id="interactions">
+              <div class="door shut" id="lockedDoor" style="top: 250px; left: 700px;"
+                data-door="key" data-eats-key="true"
+                data-on-click="window.actionLog.push('a locked wardrobe')"
+                data-on-open="Room.openRedDoor(this)">
+
+                <div class="doorHandle"></div>
+              </div>
+
+              <div id="switchboard" style="top: 0px; left: 400px;">
+                <h2>Switchboard</h2>
+                <div>
+                  <div class="slot switchboardSlot"
+                    data-slot="switchboard"
+                    data-callback="return Room.itemIsSwitch(this, withObject)"
+                    data-on-click="Room.clickedSwitchSlot()"
+                    data-on-slotted="Room.switchConnected(this, withObject)"
+                    data-duplicate-slot="4">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inventory slots -->
+        <div class="crt-screen" id="hotbar">
+          <div class="inventory-slot" data-slot data-duplicate-slot="5"></div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Generic reusable logic -->
+
+  <!-- completely standalone and isolated -->
+  <script src="../../js/look.mjs"       async type="module"></script>
+  <!-- non-persistent -->
+  <script src="../../js/point-and-click.mjs"  type="module"></script>
+  <!-- persistent -->
+  <script src="../../js/saveState.mjs"        type="module"></script>
+  <script src="../../js/action-log.mjs"       type="module"></script>
+  <script src="../../js/quests.mjs"           type="module"></script>
+  <script src="../../js/progress.mjs"         type="module"></script>
+
+  <!-- Logic specific to this room -->
+
+  <!-- a list of the callback functions i use in this HTML file -->
+  <script src="callbacks.js"></script>
+  <!-- event listeners and config -->
+  <script src="main.js" defer></script>
+</body>
+</html>
