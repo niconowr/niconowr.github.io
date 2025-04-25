@@ -1,0 +1,66 @@
+
+
+nav {
+    --horizontal-padding: 5px;
+  
+    width: auto;
+    /* flex: 1; */
+    height: 40px;
+    margin-bottom: 20px;
+  
+    background: linear-gradient(90deg, rgb(131, 83, 104) 0%, rgb(153, 0, 255) 15%, rgb(243, 165, 243) 31%, rgba(208,178,213,1) 35%, hsl(285, 19%, 84%) 38%, rgba(200,179,216,1) 53%, rgb(151, 101, 179) 65%, rgba(94,29,130,1) 80%, rgba(148,187,233,1) 100%);
+  
+    box-shadow: 0 0 0 2px #403e52e1, 0 0 0 6px #1f1f1f, 0 0 14px 2px #000000;
+  
+    border-radius: 3px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--horizontal-padding);
+    padding-right: var(--horizontal-padding);
+  }
+  
+  nav > a {
+    width: 18%;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #332570;
+    color: white;
+  
+    touch-action: manipulation;
+    appearance: none;
+  
+    vertical-align: middle;
+  
+    background: transparent;
+    background-color: #6d5eb1;
+    background-image: radial-gradient(75% 50% at 50% 0%, #5cedfa 12%, transparent), radial-gradient(75% 50% at 50% 85%, #dd8dfc, transparent);
+  
+    border: 1px solid #fedcff;
+    box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.2), 0 1px 4px 1px rgba(17, 110, 231, 0.2), 0 1px 4px 1px rgba(0, 0, 0, 0.1);
+  
+    padding: 0;
+    margin: 0;
+    margin: 3px;
+  
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    text-shadow: 0 1px 1px #116ee7;
+  
+    transition-property: border-color, transform, background-color;
+    transition-duration: 0.2s;
+  }
+  nav > a:focus {
+    border-color: #0048d5;
+    background-color: #0048d5;
+  }
+  nav > a:hover {
+    border-color: #0048d5;
+    background-color: #0048d5;
+  }
+  nav > a:active {
+    border-color: #0048d5;
+    background-color: #0048d5;
+  }

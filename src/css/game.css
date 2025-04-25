@@ -1,0 +1,78 @@
+/* Meant to be included on every room page */
+
+@import url("global.css");
+
+@import url("game/scene.css");
+@import url("game/quests.css");
+@import url("game/inventory.css");
+@import url("game/action-log.css");
+@import url("game/navbar.css");
+
+:root {
+  --view-width: 400px;
+  --view-height: 400px;
+  --hotbar-height: 100px;
+
+  --map-width: 1200px;
+  --map-height: 400px;
+}
+
+#app {
+  padding: 30px;
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: column;
+
+  outline: 5px outset #797c7e;
+  border: 2px solid rgb(52, 10, 107);
+  background: linear-gradient(45deg, rgb(150, 95, 141) 0%, rgb(50, 41, 73) 60%);
+  box-shadow: 0 0 0 2px #403e52e1, 0 0 0 6px #1f1f1f, 0 0 14px 3px #000000;
+}
+
+main {
+  display: flex;
+
+  gap: 20px;
+
+  flex-wrap: wrap-reverse;
+  max-width: fit-content;
+
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* mobile view */
+@media only screen and (max-width: 650px) {
+  #quests {
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+  #quests > hr:first-child {
+    display: none;
+  }
+  #quests > hr:last-child {
+    display: none;
+  }
+}
+@media only screen and (max-width: 700px) {
+  #app {
+    outline: unset;
+    border: unset;
+    background-color: unset;
+    background: unset;
+    box-shadow: unset;
+
+    padding: 0;
+    margin: 5px;
+  }
+
+  #log {
+    max-width: var(--view-width);
+  }
+
+  nav, main {
+    min-width: 200px;
+    max-width: var(--view-width);
+  }
+}

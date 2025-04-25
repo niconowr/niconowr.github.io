@@ -1,0 +1,8 @@
+
+{
+    "liveServer.settings.mount": [
+      [ "/point-and-click.js", "src/js/point-and-click.js" ]
+    ],
+    "liveServer.settings.root": "src/"
+  }
+  

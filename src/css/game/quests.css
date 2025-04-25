@@ -1,0 +1,106 @@
+@import url("crt.css");
+
+/* Draws a cool phone */
+
+/* needs the #quests element to have <hr> elements as the first and last child */
+/* (for the cutout and touchbar */
+
+/* phone element */
+#quests {
+  --topbar-height: 33px;
+  --cutout-height: 20px;
+  --touchbar-width: 80px;
+
+  position: relative;
+  flex: 1;
+
+  min-width: 200px;
+  max-width: var(--view-width);
+  /* max-height: calc(var(--view-height) + var(--hotbar-height) + 10px); */
+
+  /* border: solid 1px white; */
+  box-shadow: 0 0 0 2px #403e52e1, 0 0 0 6px #1f1f1f, 0 0 14px 2px #000000;
+
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: var(--topbar-height);
+
+  scrollbar-width: none;
+  scrollbar-gutter: stable;
+  scrollbar-color: grey transparent;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  user-select: none;
+
+  /* min-height: 400px; */
+  background:
+    linear-gradient(              45deg,
+
+      rgba(0, 0, 0, 0.479)      10%,
+      rgba(0, 0, 0, 0.219)          50%,
+      rgba(39, 39, 39, 0.226)   91%,
+      rgba(255, 255, 255, 0.226)   91%,
+      rgb(255, 255, 255)        100%),
+
+    linear-gradient(              45deg,
+
+      rgba(75, 66, 255, 0.863)  0%,
+      rgb(34, 33, 73)           32%,
+      rgb(13, 15, 46)           43%,
+      rgb(226, 111, 255)        43%,
+      rgb(30, 30, 218)          44%,
+      rgb(220, 117, 252)          80%,
+      rgb(136, 72, 255)         100%);
+}
+
+#quests > h2 {
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+/* make all text left-aligned */
+#quests > h1, h2, h3, h4, h5, p {
+  width: 100%;
+}
+
+[data-quest] {
+  text-align: center;
+  width: 100%;
+}
+
+/* camera cut out */
+#quests > hr:first-child {
+  height: var(--cutout-height);
+  min-height: var(--cutout-height);
+  width: var(--cutout-height);
+
+  border: none;
+  border-radius: 50%;
+
+  display: inline-block;
+  background-color: #000000;
+
+  margin-bottom: 10px;
+  margin-top: calc(-1 * var(--topbar-height) + 5px);
+
+  position: fixed;
+}
+
+/* Touchbar */
+#quests > hr:last-child {
+  position: fixed;
+  z-index: 100;
+
+  margin-bottom: 10px;
+  margin-top: calc(var(--view-height) + var(--hotbar-height) - 5px - var(--topbar-height));
+
+  width: var(--touchbar-width);
+
+  /* bottom: 10px; */
+  /* left: calc(50% - var(--width) / 2); */
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Point and click</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <nav>
+      <a> &lt;&lt; </a>
+      <a href="../../">Home</a>
+      <a> &gt;&gt; </a>
+    </nav>
+
+    <div class="crt-screen action-log" id="log">
+      <p>Up here is your action log</p>
+    </div>
+
+    <main>
+      <div class="crt-screen" id="quests">
+        <hr>
+
+        <!-- Vibes -->
+        <p style="padding-left:4px;font-size: 0.6em;background-color: rgb(195, 0, 255)">Go OS 3, Copyright (c) Leonidas Inc.</p>
+        <br>
+        <p style="font-size: 0.6em;">Booting Quest shell...</p>
+        <p>===</p>
+
+        <h2>Quests</h2>
+
+          <!-- define the quests here -->
+        <div id="quest-list">
+        </div>
+
+        <hr>
+      </div>
+
+      <div id="playArea">
+        <div class="gimbalLook" id="scene-viewport">
+
+          <!-- define the crafting recipes here -->
+          <div id="crafting">
+          </div>
+
+          <!-- build the whole map here -->
+          <div class="crt-screen" id="map">
+          </div>
+        </div>
+
+        <!-- Inventory slots -->
+        <div class="crt-screen" id="hotbar">
+          <div class="inventory-slot" data-slot data-duplicate-slot="5"></div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Generic reusable logic -->
+  <script src="../../js/saveState.js"></script>
+  <script src="../../js/action-log.js"></script>
+  <script src="../../js/point-and-click.js"></script>
+  <script src="../../js/look.js"></script>
+  <script src="../../js/quests.js"></script>
+
+  <!-- Logic specific to this room -->
+  <!-- (your scripts making use of the APIs above) -->
+</body>
+</html>

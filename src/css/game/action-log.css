@@ -1,0 +1,30 @@
+@import url("crt.css");
+
+#log {
+  box-shadow: 0 0 0 2px #403e52e1, 0 0 0 6px #1f1f1f, 0 0 14px 3px #000000;
+
+  border-radius: 10px;
+
+  height: 4em;
+
+  margin-bottom: 20px;
+  padding: 10px;
+
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  scrollbar-gutter: stable;
+  scrollbar-color: grey transparent;
+
+  text-wrap: wrap;
+  word-wrap: break-word;
+
+  background: linear-gradient(45deg, rgb(20, 23, 37) 95%, rgb(27, 32, 110) 96%, rgb(184, 184, 184) 100%);
+}
+#log > * {
+  max-width: 630px;
+  margin-bottom: 2em;
+}
+#log > *:last-child {
+  margin-bottom: unset;
+}

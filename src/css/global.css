@@ -1,0 +1,29 @@
+/* Meant to be included on all pages */
+
+@import url("variables.css");
+
+@import url("global/reset.css");
+@import url("global/links.css");
+@import url("global/view-transition.css");
+
+html, body {
+  /* width: 100%; */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(45deg, rgb(37, 17, 30) 40%, rgb(49, 31, 51) 100%);
+  color: var(--text-color);
+
+  font-family: 'Courier New', Courier, monospace;
+}
